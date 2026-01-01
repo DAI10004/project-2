@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素风转化器</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 像素风转化器</h1>
+            <p>将您的图片转换为精美的像素艺术风格</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <p>点击或拖拽上传图片</p>
+                        <p class="support-text">支持 JPG, PNG, GIF 格式</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls-section" id="controlsSection" style="display: none;">
+                <div class="control-group">
+                    <label for="pixelSize">像素大小: <span id="pixelSizeValue">8</span></label>
+                    <input type="range" id="pixelSize" min="2" max="50" value="8">
+                </div>
+
+                <div class="control-group">
+                    <label for="method">处理方法:</label>
+                    <select id="method">
+                        <option value="average">平均采样</option>
+                        <option value="gaussian">高斯模糊</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="numColors">颜色数量: <span id="numColorsValue">16</span></label>
+                    <input type="range" id="numColors" min="4" max="64" value="16">
+                </div>
+
+                <div class="control-group">
+                    <label>
+                        <input type="checkbox" id="dither">
+                        启用抖动效果
+                    </label>
+                </div>
+
+                <div class="button-group">
+                    <button id="processBtn" class="btn-primary">开始处理</button>
+                    <button id="resetBtn" class="btn-secondary">重新上传</button>
+                </div>
+            </div>
+
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <h3>处理结果</h3>
+                <div class="preview-container">
+                    <div class="preview-item">
+                        <h4>原始图片</h4>
+                        <img id="originalPreview" alt="原始图片">
+                    </div>
+                    <div class="preview-item">
+                        <h4>像素化结果</h4>
+                        <img id="processedPreview" alt="处理结果">
+                        <div class="download-section">
+                            <a id="downloadLink" href="#" download class="btn-download">下载图片</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>正在处理图片...</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>由 AI 助手制作 | 支持多种像素化算法</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
